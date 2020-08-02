@@ -1,0 +1,26 @@
+{
+  "name": "ibm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.js",
+    "deploy": "ibmcloud fn action create calendar2 dist/bundle.js",
+    "pdf": "pdf2htmlex --no-drm 1 test.pdf test222.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "node-poppler": "^1.6.0",
+    "path": "^0.12.7",
+    "pdf-poppler": "^0.2.1",
+    "pdf2html": "^2.5.2",
+    "request": "^2.88.2",
+    "webpack": "^4.42.1"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.11"
+  }
+}

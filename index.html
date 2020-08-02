@@ -1,0 +1,1175 @@
+<html>
+
+<head>
+    <style>
+        .card-content {
+            /* clear: both; */
+            display: flex;
+        }
+
+        .card {
+            width: 2in;
+            height: 2.65in;
+            /* float: left; */
+            margin: 0px 2px 2px 0px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .red-card {
+            border: 2px solid #C53030;
+            color: #C53030;
+        }
+
+        .green-card {
+            border: 2px solid #38A169;
+            color: #38A169;
+        }
+
+        .blue-card {
+            border: 2px solid #5A67D8;
+            color: #5A67D8;
+        }
+
+        .gold-card {
+            border: 2px solid #975A16;
+            color: #975A16;
+        }
+
+        .division {
+            padding: 10px 5px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .division div {
+            width: 94%;
+        }
+
+        .number {
+            position: absolute;
+            top: 4px;
+            border: none !important;
+            width: 100%;
+            text-align: center;
+            font-size: 0.75em;
+            font-weight: bold;
+        }
+
+        .number span {
+            padding: 0px 5px;
+            background-color: white;
+            border-radius: 5px;
+        }
+
+        .red-card .number span {
+            border: 2px solid #C53030
+        }
+
+        .green-card .number span {
+            border: 2px solid #38A169
+        }
+
+        .blue-card .number span {
+            border: 2px solid #5A67D8
+        }
+
+        .gold-card .number span {
+            border: 2px solid #975A16
+        }
+
+        .red-card .division div {
+            border-top: 2px solid #C53030;
+        }
+
+        .green-card .division div {
+            border-top: 2px solid #38A169;
+        }
+
+        .blue-card .division div {
+            border-top: 2px solid #5A67D8;
+        }
+
+        .gold-card .division div {
+            border-top: 2px solid #975A16;
+        }
+
+        .word {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 0.1in 0;
+            align-items: center;
+        }
+
+        .image {
+            width: 0.5in;
+        }
+
+        .image img {
+            width: 100%;
+        }
+
+        .text {
+            font-size: 1.5em;
+        }
+
+        .mean {
+            font-size: 0.75 em;
+            font-style: italic;
+        }
+
+        @media all {
+            .page-break {
+                display: none;
+            }
+        }
+
+        @media print {
+            .page-break {
+                display: block;
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+</body>
+<script>
+    var data = [
+        {
+            "text": "smile",
+            "mean": "cười",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/grinning-face_1f600.png"
+        },
+        {
+            "text": "cry",
+            "mean": "khóc",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/loudly-crying-face_1f62d.png"
+        },
+        {
+            "text": "happy",
+            "mean": "hạnh phúc",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/smiling-face-with-smiling-eyes-and-three-hearts_1f970.png"
+        },
+        {
+            "text": "angry",
+            "mean": "giận",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/face-with-look-of-triumph_1f624.png"
+        },
+        {
+            "text": "tired",
+            "mean": "mệt mỏi",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/tired-face_1f62b.png"
+        },
+        {
+            "text": "asleep",
+            "mean": "buồn ngủ",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/yawning-face_1f971.png"
+        },
+        {
+            "text": "heart",
+            "mean": "trái tim",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/heavy-black-heart_2764.png"
+        },
+        {
+            "text": "eye",
+            "mean": "mắt",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/eyes_1f440.png"
+        },
+        {
+            "text": "brain",
+            "mean": "não",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/brain_1f9e0.png"
+        },
+        {
+            "text": "tooth",
+            "mean": "răng",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/tooth_1f9b7.png"
+        },
+        {
+            "text": "mouth",
+            "mean": "miệng",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/mouth_1f444.png"
+        },
+        {
+            "text": "bone",
+            "mean": "xương",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/bone_1f9b4.png"
+        },
+        {
+            "text": "baby",
+            "mean": "em bé",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/baby_1f476.png"
+        },
+        {
+            "text": "boy",
+            "mean": "con trai",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/boy_emoji-modifier-fitzpatrick-type-3_1f466-1f3fc_1f3fc.png"
+        },
+        {
+            "text": "girl",
+            "mean": "con gái",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/girl_1f467.png"
+        },
+        {
+            "text": "judge",
+            "mean": "thẩm phán",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/judge_1f9d1-200d-2696-fe0f.png"
+        },
+        {
+            "text": "farmer",
+            "mean": "nông dân",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/farmer-light-skin-tone_1f9d1-1f3fb-200d-1f33e.png"
+        },
+        {
+            "text": "cook",
+            "mean": "đầu bếp",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/cook_1f9d1-200d-1f373.png"
+        },
+        {
+            "text": "scientist",
+            "mean": "nhà khoa học",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/scientist_1f9d1-200d-1f52c.png"
+        },
+        {
+            "text": "singer",
+            "mean": "ca sĩ",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/singer_1f9d1-200d-1f3a4.png"
+        },
+        {
+            "text": "artist",
+            "mean": "họa sĩ",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/male-artist_1f468-200d-1f3a8.png"
+        },
+        {
+            "text": "firefighter",
+            "mean": "lính cứu hỏa",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/firefighter_1f9d1-200d-1f692.png"
+        },
+        {
+            "text": "police",
+            "mean": "cảnh sát",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/male-police-officer-type-3_1f46e-1f3fc-200d-2642-fe0f.png"
+        },
+        {
+            "text": "detective",
+            "mean": "thám tử",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/sleuth-or-spy_1f575.png"
+        },
+        {
+            "text": "worker",
+            "mean": "công nhân",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/construction-worker_1f477.png"
+        },
+        {
+            "text": "prince",
+            "mean": "hoàng tử",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/prince_1f934.png"
+        },
+        {
+            "text": "princess",
+            "mean": "công chúa",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/princess_1f478.png"
+        },
+        {
+            "text": "superhero",
+            "mean": "siêu anh hùng",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/supervillain_1f9b9.png"
+        },
+        {
+            "text": "mage",
+            "mean": "pháp sư",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/mage_1f9d9.png"
+        },
+        {
+            "text": "fairy",
+            "mean": "nàng tiên",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/fairy_1f9da.png"
+        },
+        {
+            "text": "vampire",
+            "mean": "ma cà rồng",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/vampire_emoji-modifier-fitzpatrick-type-5_1f9db-1f3fe_1f3fe.png"
+        },
+        {
+            "text": "mermaid",
+            "mean": "mỹ nhân ngư",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/merwoman_1f9dc-200d-2640-fe0f.png"
+        },
+        {
+            "text": "walk",
+            "mean": "đi bộ",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/pedestrian_1f6b6.png"
+        },
+        {
+            "text": "stand",
+            "mean": "đứng",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/standing-person_1f9cd.png"
+        },
+        {
+            "text": "kneel",
+            "mean": "quỳ",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/kneeling-person_1f9ce.png"
+        },
+        {
+            "text": "run",
+            "mean": "chạy",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/woman-running_1f3c3-200d-2640-fe0f.png"
+        },
+        {
+            "text": "dance",
+            "mean": "múa",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/dancer_emoji-modifier-fitzpatrick-type-3_1f483-1f3fc_1f3fc.png"
+        },
+        {
+            "text": "climb",
+            "mean": "leo",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/person-climbing_1f9d7.png"
+        },
+        {
+            "text": "fencing",
+            "mean": "đấu kiếm",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/fencer_1f93a.png"
+        },
+        {
+            "text": "horse racing",
+            "mean": "đua ngựa",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/horse-racing_1f3c7.png"
+        },
+        {
+            "text": "golf",
+            "mean": "golf",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/golfer_1f3cc.png"
+        },
+        {
+            "text": "swim",
+            "mean": "bơi",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/woman-swimming_1f3ca-200d-2640-fe0f.png"
+        },
+        {
+            "text": "bicyclist",
+            "mean": "người đi xe đạp",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/bicyclist_1f6b4.png"
+        },
+
+        {
+            "text": "pencil",
+            "mean": "bút chì",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/pencil_270f.png"
+        },
+        {
+            "text": "key",
+            "mean": "chìa khóa",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/key_1f511.png"
+        },
+        {
+            "text": "hammer",
+            "mean": "cái búa",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/axe_1fa93.png"
+        },
+        {
+            "text": "chair",
+            "mean": "cái ghế",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/chair_1fa91.png"
+        },
+        {
+            "text": "bed",
+            "mean": "cái giường",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/bed_1f6cf.png"
+        },
+        {
+            "text": "monkey",
+            "mean": "con khỉ",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/monkey_1f412.png"
+        },
+        {
+            "text": "dog",
+            "mean": "con chó",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/dog_1f415.png"
+        },
+        {
+            "text": "fox",
+            "mean": "con cáo",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/fox-face_1f98a.png"
+        },
+        {
+            "text": "cat",
+            "mean": "con mèo",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/cat_1f408.png"
+        },
+        {
+            "text": "lion",
+            "mean": "sư tử",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/lion-face_1f981.png"
+        },
+        {
+            "text": "tiger",
+            "mean": "con hổ",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/tiger-face_1f42f.png"
+        },
+        {
+            "text": "leopard",
+            "mean": "con báo",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/leopard_1f406.png"
+        },
+        {
+            "text": "horse",
+            "mean": "con ngựa",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/horse_1f40e.png"
+        },
+        {
+            "text": "zebra",
+            "mean": "ngựa vằn",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/zebra-face_1f993.png"
+        },
+        {
+            "text": "deer",
+            "mean": "con nai",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/deer_1f98c.png"
+        },
+        {
+            "text": "cow",
+            "mean": "con bò",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/cow_1f404.png"
+        },
+        {
+            "text": "pig",
+            "mean": "con heo",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/pig_1f416.png"
+        },
+        {
+            "text": "sheep",
+            "mean": "con cừu",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/ram_1f40f.png"
+        },
+        {
+            "text": "goat",
+            "mean": "con dê",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/goat_1f410.png"
+        },
+        {
+            "text": "camel",
+            "mean": "lạc đà",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/dromedary-camel_1f42a.png"
+        },
+        {
+            "text": "elephant",
+            "mean": "con voi",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/elephant_1f418.png"
+        },
+        {
+            "text": "mouse",
+            "mean": "con chuột",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/mouse_1f401.png"
+        },
+        {
+            "text": "rabbit",
+            "mean": "con thỏ",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/rabbit_1f407.png"
+        },
+        {
+            "text": "bat",
+            "mean": "con dơi",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/bat_1f987.png"
+        },
+        {
+            "text": "bear",
+            "mean": "con gấu",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/bear-face_1f43b.png"
+        },
+        {
+            "text": "kangaroo",
+            "mean": "chuột túi",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/kangaroo_1f998.png"
+        },
+        {
+            "text": "turkey",
+            "mean": "gà tây",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/turkey_1f983.png"
+        },
+        {
+            "text": "chicken",
+            "mean": "con gà",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/rooster_1f413.png"
+        },
+        {
+            "text": "duck",
+            "mean": "con vịt",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/duck_1f986.png"
+        },
+        {
+            "text": "dove",
+            "mean": "bồ câu",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/dove-of-peace_1f54a.png"
+        },
+        {
+            "text": "swan",
+            "mean": "thiên nga",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/swan_1f9a2.png"
+        },
+        {
+            "text": "peacock",
+            "mean": "con công",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/peacock_1f99a.png"
+        },
+        {
+            "text": "parrot",
+            "mean": "con vẹt",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/parrot_1f99c.png"
+        },
+        {
+            "text": "frog",
+            "mean": "con ếch",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/frog-face_1f438.png"
+        },
+        {
+            "text": "crocodile",
+            "mean": "cá sấu",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/crocodile_1f40a.png"
+        },
+        {
+            "text": "turtle",
+            "mean": "con rùa",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/turtle_1f422.png"
+        },
+        {
+            "text": "lizard",
+            "mean": "thằn lằn",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/lizard_1f98e.png"
+        },
+        {
+            "text": "snake",
+            "mean": "con rắn",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/snake_1f40d.png"
+        },
+        {
+            "text": "dragon",
+            "mean": "con rồng",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/dragon_1f409.png"
+        },
+        {
+            "text": "dinosaur",
+            "mean": "khủng long",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/sauropod_1f995.png"
+        },
+        {
+            "text": "whale",
+            "mean": "cá voi",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/spouting-whale_1f433.png"
+        },
+        {
+            "text": "dolphin",
+            "mean": "cá heo",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/dolphin_1f42c.png"
+        },
+        {
+            "text": "fish",
+            "mean": "con cá",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/tropical-fish_1f420.png"
+        },
+        {
+            "text": "shark",
+            "mean": "cá mập",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/shark_1f988.png"
+        },
+        {
+            "text": "octopus",
+            "mean": "bạch tuộc",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/octopus_1f419.png"
+        },
+        {
+            "text": "spiral shell",
+            "mean": "vỏ ốc",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/spiral-shell_1f41a.png"
+        },
+        {
+            "text": "snail",
+            "mean": "ốc sên",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/snail_1f40c.png"
+        },
+        {
+            "text": "butterfly",
+            "mean": "con bướm",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/butterfly_1f98b.png"
+        },
+        {
+            "text": "bug",
+            "mean": "sâu bọ",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/bug_1f41b.png"
+        },
+        {
+            "text": "ant",
+            "mean": "con kiến",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/ant_1f41c.png"
+        },
+        {
+            "text": "bee",
+            "mean": "con ong",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/honeybee_1f41d.png"
+        },
+        {
+            "text": "cricket",
+            "mean": "con dế",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/cricket_1f997.png"
+        },
+        {
+            "text": "spider",
+            "mean": "con nhện",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/spider_1f577.png"
+        },
+        {
+            "text": "cherry blossom",
+            "mean": "hoa anh đào",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/cherry-blossom_1f338.png"
+        },
+        {
+            "text": "rose",
+            "mean": "hoa hồng",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/rose_1f339.png"
+        },
+        {
+            "text": "sunflower",
+            "mean": "hoa hướng dương",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/sunflower_1f33b.png"
+        },
+        {
+            "text": "tulip",
+            "mean": "hoa tulip",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/tulip_1f337.png"
+        },
+        {
+            "text": "leaf",
+            "mean": "chiếc lá",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/fallen-leaf_1f342.png"
+        },
+        {
+            "text": "grapes",
+            "mean": "quả nho",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/grapes_1f347.png"
+        },
+        {
+            "text": "watermelon",
+            "mean": "dưa hấu",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/watermelon_1f349.png"
+        },
+        {
+            "text": "orange",
+            "mean": "quả cam",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/tangerine_1f34a.png"
+        },
+        {
+            "text": "lemon",
+            "mean": "quả chanh",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/lemon_1f34b.png"
+        },
+        {
+            "text": "banana",
+            "mean": "quả chuối",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/banana_1f34c.png"
+        },
+        {
+            "text": "pineapple",
+            "mean": "quả dứa",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/pineapple_1f34d.png"
+        },
+        {
+            "text": "mango",
+            "mean": "quả xoài",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/mango_1f96d.png"
+        },
+        {
+            "text": "apple",
+            "mean": "quả táo",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/red-apple_1f34e.png"
+        },
+        {
+            "text": "pear",
+            "mean": "quả lê",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/pear_1f350.png"
+        },
+        {
+            "text": "peach",
+            "mean": "quả đào",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/peach_1f351.png"
+        },
+        {
+            "text": "strawberry",
+            "mean": "dâu tây",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/strawberry_1f353.png"
+        },
+        {
+            "text": "tomato",
+            "mean": "cà chua",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/tomato_1f345.png"
+        },
+        {
+            "text": "coconut",
+            "mean": "quả dừa",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/coconut_1f965.png"
+        },
+        {
+            "text": "avocado",
+            "mean": "quả bơ",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/avocado_1f951.png"
+        },
+        {
+            "text": "potato",
+            "mean": "khoai tây",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/potato_1f954.png"
+        },
+        {
+            "text": "carrot",
+            "mean": "cà rốt",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/carrot_1f955.png"
+        },
+        {
+            "text": "corn",
+            "mean": "trái bắp",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/ear-of-maize_1f33d.png"
+        },
+        {
+            "text": "chilli",
+            "mean": "trái ớt",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/hot-pepper_1f336.png"
+        },
+        {
+            "text": "cucumber",
+            "mean": "dưa leo",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/cucumber_1f952.png"
+        },
+        {
+            "text": "garlic",
+            "mean": "củ tỏi",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/garlic_1f9c4.png"
+        },
+        {
+            "text": "onion",
+            "mean": "củ hành",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/onion_1f9c5.png"
+        },
+        {
+            "text": "mushroom",
+            "mean": "nấm",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/mushroom_1f344.png"
+        },
+        {
+            "text": "bread",
+            "mean": "bánh mì",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/baguette-bread_1f956.png"
+        },
+        {
+            "text": "cheese",
+            "mean": "phô mai",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/cheese-wedge_1f9c0.png"
+        },
+        {
+            "text": "meat",
+            "mean": "thịt",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/cut-of-meat_1f969.png"
+        },
+        {
+            "text": "hot dog",
+            "mean": "xúc xích",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/hot-dog_1f32d.png"
+        },
+        {
+            "text": "egg",
+            "mean": "quả trứng",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/egg_1f95a.png"
+        },
+        {
+            "text": "salt",
+            "mean": "muối",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/salt-shaker_1f9c2.png"
+        },
+        {
+            "text": "moon cake",
+            "mean": "bánh trung thu",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/moon-cake_1f96e.png"
+        },
+        {
+            "text": "crab",
+            "mean": "con cua",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/crab_1f980.png"
+        },
+        {
+            "text": "shrimp",
+            "mean": "con tôm",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/shrimp_1f990.png"
+        },
+        {
+            "text": "squid",
+            "mean": "mực ống",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/squid_1f991.png"
+        },
+        {
+            "text": "ice cream",
+            "mean": "kem",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/soft-ice-cream_1f366.png"
+        },
+        {
+            "text": "cookie",
+            "mean": "bánh quy",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/cookie_1f36a.png"
+        },
+        {
+            "text": "birthday cake",
+            "mean": "bánh sinh nhật",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/birthday-cake_1f382.png"
+        },
+        {
+            "text": "candy",
+            "mean": "kẹo",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/candy_1f36c.png"
+        },
+        {
+            "text": "honey",
+            "mean": "mật ong",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/honey-pot_1f36f.png"
+        },
+        {
+            "text": "glass of milk",
+            "mean": "ly sữa",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/glass-of-milk_1f95b.png"
+        },
+        {
+            "text": "wine glass",
+            "mean": "ly rượu",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/wine-glass_1f377.png"
+        },
+        {
+            "text": "beer",
+            "mean": "bia",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/beer-mug_1f37a.png"
+        },
+        {
+            "text": "ice",
+            "mean": "nước đá",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/ice-cube_1f9ca.png"
+        },
+        {
+            "text": "spoon",
+            "mean": "cái muổng",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/spoon_1f944.png"
+        },
+        {
+            "text": "knife",
+            "mean": "con dao",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/hocho_1f52a.png"
+        },
+        {
+            "text": "earth",
+            "mean": "trái đất",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/earth-globe-europe-africa_1f30d.png"
+        },
+        {
+            "text": "world map",
+            "mean": "bản đồ thế giới",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/world-map_1f5fa.png"
+        },
+        {
+            "text": "mountain",
+            "mean": "núi",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/snow-capped-mountain_1f3d4.png"
+        },
+        {
+            "text": "volcano",
+            "mean": "núi lửa",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/volcano_1f30b.png"
+        },
+        {
+            "text": "camp",
+            "mean": "lều trại",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/camping_1f3d5.png"
+        },
+        {
+            "text": "umbrella",
+            "mean": "cây dù",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/beach-with-umbrella_1f3d6.png"
+        },
+        {
+            "text": "desert",
+            "mean": "sa mạc",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/desert_1f3dc.png"
+        },
+        {
+            "text": "stadium",
+            "mean": "sân vận động",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/stadium_1f3df.png"
+        },
+        {
+            "text": "house",
+            "mean": "ngôi nhà",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/house-buildings_1f3d8.png"
+        },
+        {
+            "text": "hospital",
+            "mean": "bệnh viện",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/hospital_1f3e5.png"
+        },
+        {
+            "text": "hotel",
+            "mean": "khách sạn",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/hotel_1f3e8.png"
+        },
+        {
+            "text": "school",
+            "mean": "trường học",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/school_1f3eb.png"
+        },
+        {
+            "text": "factory",
+            "mean": "nhà máy",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/factory_1f3ed.png"
+        },
+        {
+            "text": "castle",
+            "mean": "lâu đài",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/european-castle_1f3f0.png"
+        },
+        {
+            "text": "night",
+            "mean": "buổi tối",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/night-with-stars_1f303.png"
+        },
+        {
+            "text": "sunrise",
+            "mean": "bình minh",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/sunrise_1f305.png"
+        },
+        {
+            "text": "train",
+            "mean": "xe lửa",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/mountain-railway_1f69e.png"
+        },
+        {
+            "text": "bus",
+            "mean": "xe buýt",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/railway-car_1f683.png"
+        },
+        {
+            "text": "car",
+            "mean": "xe hơi",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/automobile_1f697.png"
+        },
+        {
+            "text": "motobike",
+            "mean": "xe máy",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/motor-scooter_1f6f5.png"
+        },
+        {
+            "text": "bicycle",
+            "mean": "xe đạp",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/bicycle_1f6b2.png"
+        },
+        {
+            "text": "ship",
+            "mean": "tàu thuyền",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/passenger-ship_1f6f3.png"
+        },
+        {
+            "text": "airplane",
+            "mean": "máy bay",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/airplane_2708.png"
+        },
+        {
+            "text": "clock",
+            "mean": "đồng hồ",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/alarm-clock_23f0.png"
+        },
+        {
+            "text": "moon",
+            "mean": "mặt trăng",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/last-quarter-moon-with-face_1f31c.png"
+        },
+        {
+            "text": "sun",
+            "mean": "mặt trời",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/sun-with-face_1f31e.png"
+        },
+        {
+            "text": "cloud",
+            "mean": "mây",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/cloud_2601.png"
+        },
+        {
+            "text": "rain",
+            "mean": "mưa",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/cloud-with-rain_1f327.png"
+        },
+        {
+            "text": "lightning",
+            "mean": "sấm sét",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/cloud-with-lightning_1f329.png"
+        },
+        {
+            "text": "rainbow",
+            "mean": "cầu vòng",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/rainbow_1f308.png"
+        },
+        {
+            "text": "fire",
+            "mean": "lữa",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/fire_1f525.png"
+        },
+        {
+            "text": "water",
+            "mean": "nước",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/droplet_1f4a7.png"
+        },
+        {
+            "text": "fireworks",
+            "mean": "pháo hoa",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/fireworks_1f386.png"
+        },
+        {
+            "text": "balloons",
+            "mean": "bóng bay",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/balloon_1f388.png"
+        },
+        {
+            "text": "gift",
+            "mean": "quà",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/wrapped-present_1f381.png"
+        },
+        {
+            "text": "ball",
+            "mean": "trái bóng",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/soccer-ball_26bd.png"
+        },
+        {
+            "text": "t-shirt",
+            "mean": "áo thun",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/t-shirt_1f455.png"
+        },
+        {
+            "text": "jeans",
+            "mean": "quần jean",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/jeans_1f456.png"
+        },
+        {
+            "text": "gloves",
+            "mean": "găng tay",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/gloves_1f9e4.png"
+        },
+        {
+            "text": "coat",
+            "mean": "áo khoác",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/coat_1f9e5.png"
+        },
+        {
+            "text": "backpack",
+            "mean": "ba lô",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/school-satchel_1f392.png"
+        },
+        {
+            "text": "shoe",
+            "mean": "giày",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/mans-shoe_1f45e.png"
+        },
+        {
+            "text": "hat",
+            "mean": "nón",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/womans-hat_1f452.png"
+        },
+        {
+            "text": "diamond",
+            "mean": "kim cương",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/gem-stone_1f48e.png"
+        },
+        {
+            "text": "light bulb",
+            "mean": "bóng đèn",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/electric-light-bulb_1f4a1.png"
+        },
+        {
+            "text": "candle",
+            "mean": "đèn cầy",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/candle_1f56f.png"
+        },
+        {
+            "text": "book",
+            "mean": "sách",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/notebook-with-decorative-cover_1f4d4.png"
+        },
+        {
+            "text": "newspaper",
+            "mean": "tờ báo",
+            "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/newspaper_1f4f0.png"
+        },
+        // {
+        //     "text": "money",
+        //     "mean": "tiền",
+        //     "image": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/144/apple/237/banknote-with-dollar-sign_1f4b5.png"
+        // }
+    ]
+    var number = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty", "twenty-one", "twenty-two", "twenty-three", "twenty-four", "twenty-five", "twenty-six", "twenty-seven", "twenty-eight", "twenty-nine", "thirty", "thirty-one", "thirty-two", "thirty-three", "thirty-four", "thirty-five", "thirty-six", "thirty-seven", "thirty-eight", "thirty-nine", "forty", "forty-one", "forty-two", "forty-three", "forty-four", "forty-five", "forty-six", "forty-seven", "forty-eight"]
+</script>
+<script>
+    console.log(data);
+    var body = document.getElementsByTagName('body')[0];
+    var html = '';
+    data.forEach(function (item, index) {
+        color = '';
+        switch (Math.floor(index / 48)) {
+            case 0:
+                color = 'red';
+                break;
+            case 1:
+                color = 'green';
+                break;
+            case 2:
+                color = 'blue';
+                break;
+            case 3:
+                color = 'gold';
+                break;
+        }
+        var currentIndex = index;
+        var nextIndex = index + 1;
+        if (nextIndex % 48 == 0) {
+            nextIndex = 48 * (nextIndex / 48 - 1);
+        }
+        if (index % 4 == 0) {
+            html += `<div class="card-content">`;
+        }
+        html +=
+            `<div class="card ${color}-card">
+                <div class="word">
+                    <div class="text">${data[index].text}</div>    
+                    <div class="image">
+                        <img src="${data[index].image}" />    
+                    </div>    
+                    <div class="mean">${data[index].mean}</div>    
+                </div>
+                <div class="division">
+                    <div></div>
+                    <div class="number"><span>${number[index % 48]}</span></div>
+                </div>
+                <div class="word">
+                    <div class="mean">${data[nextIndex].mean}</div>
+                    <div class="image">
+                        <img src="${data[nextIndex].image}" />        
+                    </div>    
+                    <div class="text">${data[nextIndex].text}</div>    
+                </div>
+            </div>`;
+        if (index % 4 == 3) {
+            html += `</div>`;
+        }
+        if (nextIndex % 16 == 0) {
+            html += '<div class="page-break"></div>'
+        }
+    });
+    body.innerHTML = html;
+</script>
+
+</html>
